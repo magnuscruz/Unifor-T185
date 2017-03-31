@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<param name="Threshold" value="DEBUG" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p [%d] [%t] [%c{1}.%M:%L] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="FILETXT" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="log/Referencia.log"/>
+		<param name="DatePattern" value="'-'yyyy-MM-dd'.log'"/>
+		<param name="Threshold" value="DEBUG" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p [%d] [%t] [%c{1}.%M:%L] %m%n" />
+		</layout>
+	</appender>
+
+
+	<category name="br.gov.dataprev.sibe">
+		<priority value="DEBUG" />
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="FILETXT"/>
+	</category>
+	<category name="org.eclipselink.persistence">
+		<priority value="DEBUG" />
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="FILETXT"/>
+	</category>
+	<category name="br.gov.dataprev.infra">
+		<priority value="DEBUG" />
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="FILETXT"/>
+	</category>
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="FILETXT"/>
+	</root>
+</log4j:configuration>
