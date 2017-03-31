@@ -8,5 +8,6 @@
 	<properties>
 		<project.hibernate.version>4.3.11.Final</project.hibernate.version>
 		<project.jersey.version>1.19</project.jersey.version>
+		<project.eclipselink.version>2.5.0</project.eclipselink.version>
 	</properties>
 </project>

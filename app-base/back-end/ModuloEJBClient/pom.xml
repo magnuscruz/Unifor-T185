@@ -17,7 +17,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${project.hibernate.version}</version>
@@ -29,8 +29,15 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${project.hibernate.version}</version>
 			<scope>provided</scope>
+		</dependency> -->
+
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>${project.eclipselink.version}</version>
+			<scope>provided</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.ejb/ejb-api -->
+
 		<dependency>
 			<groupId>javax.ejb</groupId>
 			<artifactId>ejb-api</artifactId>

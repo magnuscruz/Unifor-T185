@@ -5,12 +5,15 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
+
 @XmlRootElement
+@Entity
+@Table(name="ALUNOS")
 public class Aluno implements Serializable {
 
 	/**

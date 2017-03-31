@@ -17,7 +17,7 @@
 		</dependency>
 
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${project.hibernate.version}</version>
@@ -39,6 +39,13 @@
 					<groupId>dom4j</groupId>
 				</exclusion>
 			</exclusions>
+		</dependency> -->
+
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>${project.eclipselink.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>

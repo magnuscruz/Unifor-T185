@@ -16,7 +16,7 @@
 			<version>1.2.17</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${project.hibernate.version}</version>
@@ -26,7 +26,14 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${project.hibernate.version}</version>
+		</dependency> -->
+
+		<dependency>
+		    <groupId>org.eclipse.persistence</groupId>
+		    <artifactId>eclipselink</artifactId>
+		    <version>${project.eclipselink.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derbyclient</artifactId>
@@ -83,8 +90,9 @@
 		<finalName>${project.artifactId}</finalName>
 	</build>
 	<parent>
-		<groupId>br.unifor.pa1.backend</groupId>
+		<groupId>br.unifor.pa1</groupId>
 		<artifactId>backend</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	<groupId>br.unifor.pa1.backend</groupId>
 </project>
