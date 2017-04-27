@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Alunos Unifor</title>
+</h:head>
+<h:body>
+	<h:form id="formAluno">
+		<h1>Cadastrar Aluno</h1>
+    Nome: <h:inputText value="#{alunoMB.aluno.nome}"></h:inputText>
+		<br />
+    Curso: <h:inputText value="#{alunoMB.aluno.curso}"></h:inputText>
+		<br />
+    Idade: <h:inputText value="#{alunoMB.aluno.idade}"></h:inputText>
+		<br />
+    E-amil: <h:inputText value="#{alunoMB.aluno.email}"></h:inputText>
+		<br />
+		<h:commandButton action="#{alunoMB.inserir}" value="Inserir"></h:commandButton>
+	<h1>Alunos cadastrados</h1>
+	<h:outputText value="" />
+	<p:dataTable value="#{alunoMB.dataModel}" paginator="true" rows="3"
+		lazy="true" var="f" width="600px" border="1" id="AlunosTable">
+		<p:column headerText="Nome">
+			<h:outputText value="#{f.nome}" />
+		</p:column>
+		<p:column headerText="Curso">
+			<h:outputText value="#{f.curso}" />
+		</p:column>
+		<p:column headerText="Idade">
+			<h:outputText value="#{f.idade}" />
+		</p:column>
+		<p:column headerText="E-mail">
+			<h:outputText value="#{f.email}" />
+		</p:column>
+	</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>

@@ -45,4 +45,14 @@ public class AlunoServiceImpl implements AlunoService {
 
 		return this.alunoDAO.altera(aluno);
 	}
+
+	@Override
+	public Collection<Aluno> listaAlunos(int first, int pageSize) {
+		return this.alunoDAO.lista(first, pageSize);
+	}
+
+	@Override
+	public Integer count() {
+		return this.alunoDAO.count();
+	}
 }

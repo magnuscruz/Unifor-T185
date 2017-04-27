@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -22,22 +24,20 @@ public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
-	@XmlAttribute
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
+	@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 	private Long id;
 
-	@XmlElement
 	private String nome;
 	
-	@XmlAttribute
 	private Integer idade;
 
-	@XmlAttribute
 	private String email;
 
-	@XmlElement
+	
 	private String curso;
 
+	@XmlAttribute
 	public Long getId() {
 		return id;
 	}
@@ -46,10 +46,12 @@ public class Aluno implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getNome() {
 		return nome;
 	}
 
+	@XmlAttribute
 	public Integer getIdade() {
 		return idade;
 	}
@@ -62,6 +64,7 @@ public class Aluno implements Serializable {
 		this.nome = nome;
 	}
 
+	@XmlAttribute
 	public String getEmail() {
 		return email;
 	}
@@ -70,6 +73,7 @@ public class Aluno implements Serializable {
 		this.email = email;
 	}
 
+	@XmlAttribute
 	public String getCurso() {
 		return curso;
 	}

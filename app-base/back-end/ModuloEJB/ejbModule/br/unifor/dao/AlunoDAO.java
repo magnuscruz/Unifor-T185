@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
 
@@ -41,6 +42,31 @@ public class AlunoDAO {
 			LOG.error("ERRO DE ACESSO A DADOS", e);
 		}
 		return list;
+	}
+
+	public List<Aluno> lista(int first, int pageSize) {
+		List<Aluno> list = null;
+		try {
+			TypedQuery<Aluno> query = manager.createQuery("SELECT a FROM Aluno a", Aluno.class);
+			query.setFirstResult(first);
+			query.setMaxResults(pageSize);
+			list = query.getResultList();
+		} catch (Exception e) {
+			LOG.error("ERRO DE ACESSO A DADOS", e);
+		}
+		return list;
+	}
+
+	public Integer count() {
+		Long count = null;
+		try {
+			TypedQuery<Long> query = manager.createQuery("SELECT count(a) as valor FROM Aluno a", Long.class);
+			count = query.getSingleResult();
+		} catch (Exception e) {
+			LOG.error("ERRO DE ACESSO A DADOS", e);
+			throw e;
+		}
+		return count.intValue();
 	}
 
 	public String remove(Long id) {

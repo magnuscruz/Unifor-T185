@@ -11,6 +11,10 @@ public interface AlunoService {
 
 	public Collection<Aluno> listaAlunos();
 
+	public Collection<Aluno> listaAlunos(int first, int pageSize);
+
+	public Integer count();
+
 	public String adicionaAluno(Aluno aluno);
 
 	public String removeAluno(Long id);

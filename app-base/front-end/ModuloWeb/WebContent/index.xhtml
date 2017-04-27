@@ -2,39 +2,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-  <h:head>
-    <title>Alunos Unifor</title>
-  </h:head>
-  <h:body>
-    <h1>Alunos cadastrados</h1>
-    <h:outputText value=""/>
-    <h:dataTable value="#{alunoMB.alunos}" var="f" width="600px" border="1">
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Nome"/>
-        </f:facet>
-        <h:outputText value="#{f.nome}"/>
-      </h:column>
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Curso"/>
-        </f:facet>
-        <h:outputText value="#{f.curso}"/>
-      </h:column>
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Idade"/>
-        </f:facet>
-        <h:outputText value="#{f.idade}"/>
-      </h:column>
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="E-mail"/>
-        </f:facet>
-        <h:outputText value="#{f.email}"/>
-      </h:column>
-    </h:dataTable>
-  </h:body>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Alunos Unifor</title>
+</h:head>
+<h:body>
+	<h1>Alunos cadastrados</h1>
+	<h:outputText value="" />
+	<h:form id="formAluno">
+		<p:dataTable value="#{alunoMB.dataModel}" paginator="true" rows="3"
+			lazy="true" var="f" width="600px" border="1" id="AlunosTable">
+			<p:column headerText="Nome">
+				<h:outputText value="#{f.nome}" />
+			</p:column>
+			<p:column headerText="Curso">
+				<h:outputText value="#{f.curso}" />
+			</p:column>
+			<p:column headerText="Idade">
+				<h:outputText value="#{f.idade}" />
+			</p:column>
+			<p:column headerText="E-mail">
+				<h:outputText value="#{f.email}" />
+			</p:column>
+		</p:dataTable>
+
+	</h:form>
+</h:body>
 </html>

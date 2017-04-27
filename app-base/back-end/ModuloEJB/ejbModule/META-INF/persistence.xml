@@ -5,7 +5,7 @@
              version="2.0">
     <persistence-unit name="ExemploPU" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <jta-data-source>jdbc/ComprasDS</jta-data-source>
+        <jta-data-source>jdbc/AlunoDS</jta-data-source>
         <mapping-file>META-INF/consultas.xml</mapping-file>
         <jar-file>./lib/ModuloEJBClient-0.0.1-SNAPSHOT.jar</jar-file>
         <!-- <class>br.unifor.entity.Aluno</class> -->

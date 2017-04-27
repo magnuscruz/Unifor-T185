@@ -1,5 +1,9 @@
 package br.unifor.restful.resources;
 
+import static javax.ws.rs.core.MediaType.*;
+import static javax.ws.rs.core.MediaType.APPLICATION_XML;
+import static javax.ws.rs.core.MediaType.TEXT_XML;
+
 import java.util.Collection;
 
 import javax.ejb.EJB;
@@ -24,24 +28,32 @@ public class AlunoResource {
 	@EJB(name="AlunoService",mappedName="AlunoService")
     private AlunoService alunoBean;
 	
+	@Path("{first}/{page}")
 	@GET
-	@Produces("application/json")
-	public Collection<Aluno> listaAlunos() {				
+	@Produces(APPLICATION_JSON)
+	public Collection<Aluno> listaAlunos( @PathParam("first") Integer first,  @PathParam("page") Integer page) {				
 		
-		return alunoBean.listaAlunos();	
+		return alunoBean.listaAlunos(first, page);	
 	}	
-	
+
+	@Path("count")
+	@GET
+	@Produces(APPLICATION_JSON)
+	public Integer count() {				
+		return alunoBean.count();	
+	}
+
 	@POST
-	@Consumes("application/json")
-	@Produces("text/plain")
+	@Consumes({ APPLICATION_XML, TEXT_XML, APPLICATION_JSON })
+	@Produces(TEXT_PLAIN)
 	public String adicionaAluno(Aluno aluno) {
 						
 		return alunoBean.adicionaAluno(aluno);
 	}	
 		
 	@PUT
-	@Consumes("application/json")
-	@Produces("text/plain")
+	@Consumes(APPLICATION_JSON)
+	@Produces(TEXT_PLAIN)
 	public String alteraAluno(Aluno aluno) {		
 				
 		return alunoBean.alteraAluno(aluno);
@@ -49,7 +61,7 @@ public class AlunoResource {
 	
 	@Path("{id}")
 	@DELETE	
-	@Produces("text/plain")
+	@Produces(TEXT_PLAIN)
 	public String removeAluno(@PathParam("id") Long id) {
 		
 		return alunoBean.removeAluno(id);
