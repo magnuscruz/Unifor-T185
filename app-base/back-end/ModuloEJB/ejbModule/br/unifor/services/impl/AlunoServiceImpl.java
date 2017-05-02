@@ -1,19 +1,19 @@
 package br.unifor.services.impl;
 
-import java.util.Collection;
-
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import br.unifor.dao.AlunoDAO;
 import br.unifor.entity.Aluno;
+import br.unifor.infra.core.dao.SistemaDao;
+import br.unifor.infra.core.services.impl.AbstractServiceImpl;
 import br.unifor.services.AlunoService;
 
 /**
  * Session Bean implementation class AlunoBean
  */
 @Stateless(name="AlunoService",mappedName="AlunoService")
-public class AlunoServiceImpl implements AlunoService {
+public class AlunoServiceImpl extends AbstractServiceImpl<Aluno, Aluno, Long> implements AlunoService {
 
 	@EJB
 	private AlunoDAO alunoDAO;
@@ -23,36 +23,13 @@ public class AlunoServiceImpl implements AlunoService {
 	}
 
 	@Override
-	public Collection<Aluno> listaAlunos() {
-
-		return this.alunoDAO.lista();
+	protected SistemaDao<Aluno, Aluno, Long> getDao() {
+		return alunoDAO;
 	}
 
 	@Override
-	public String adicionaAluno(Aluno aluno) {
-
-		return this.alunoDAO.insere(aluno);
+	protected Class<Aluno> getEntidadeClass() {
+		return Aluno.class;
 	}
 
-	@Override
-	public String removeAluno(Long id) {
-
-		return this.alunoDAO.remove(id);
-	}
-
-	@Override
-	public String alteraAluno(Aluno aluno) {
-
-		return this.alunoDAO.altera(aluno);
-	}
-
-	@Override
-	public Collection<Aluno> listaAlunos(int first, int pageSize) {
-		return this.alunoDAO.lista(first, pageSize);
-	}
-
-	@Override
-	public Integer count() {
-		return this.alunoDAO.count();
-	}
 }

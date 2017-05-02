@@ -56,6 +56,11 @@
 			<artifactId>ModuloEJBClient</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>br.unifor.infra.core</groupId>
+			<artifactId>infra-core</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<sourceDirectory>ejbModule</sourceDirectory>

@@ -33,38 +33,38 @@ public class AlunoResource {
 	@Produces(APPLICATION_JSON)
 	public Collection<Aluno> listaAlunos( @PathParam("first") Integer first,  @PathParam("page") Integer page) {				
 		
-		return alunoBean.listaAlunos(first, page);	
+		return alunoBean.buscarTodos(first, page);	
 	}	
 
 	@Path("count")
 	@GET
 	@Produces(APPLICATION_JSON)
 	public Integer count() {				
-		return alunoBean.count();	
+		return alunoBean.contarTodos();	
 	}
 
 	@POST
 	@Consumes({ APPLICATION_XML, TEXT_XML, APPLICATION_JSON })
 	@Produces(TEXT_PLAIN)
 	public String adicionaAluno(Aluno aluno) {
-						
-		return alunoBean.adicionaAluno(aluno);
+		alunoBean.inserir(aluno);		
+		return "Inserido com sucesso...";
 	}	
 		
 	@PUT
 	@Consumes(APPLICATION_JSON)
-	@Produces(TEXT_PLAIN)
-	public String alteraAluno(Aluno aluno) {		
-				
-		return alunoBean.alteraAluno(aluno);
+	@Produces(APPLICATION_JSON)
+	public Aluno alteraAluno(Aluno aluno) {		
+		
+		return alunoBean.alterar(aluno);
 	}
 	
 	@Path("{id}")
 	@DELETE	
 	@Produces(TEXT_PLAIN)
 	public String removeAluno(@PathParam("id") Long id) {
-		
-		return alunoBean.removeAluno(id);
+		alunoBean.remover(id);
+		return "Removido com sucesso...";
 	}	
 
 }

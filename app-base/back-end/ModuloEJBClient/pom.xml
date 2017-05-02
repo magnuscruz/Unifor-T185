@@ -45,6 +45,11 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>br.unifor.infra.core</groupId>
+			<artifactId>infra-core</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -8,6 +8,14 @@
 	<properties>
 		<project.hibernate.version>4.3.11.Final</project.hibernate.version>
 		<project.jersey.version>1.19</project.jersey.version>
-		<project.eclipselink.version>2.5.0</project.eclipselink.version>
+		<project.eclipselink.version>2.5.2</project.eclipselink.version>
 	</properties>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+	</dependencies>
 </project>
